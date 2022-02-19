@@ -14,13 +14,15 @@ class Filter {
     }
     static filterForIngredients(values) {
         const data = AccessMenuTable.showAllMenu()
-        data.forEach(element => {
-            const test = element.ingredients.includes(...values)
-            if(test){
-                const index = data.indexOf(element)
-                data.splice(index, 1)
-            }
-        });
+        for(let i = 0; values.length < i; i++){
+            data.forEach(element => {
+                const test = element.ingredients.includes(values[i])
+                if(test){
+                    const index = data.indexOf(element)
+                    data.splice(index, 1)
+                }
+            });
+        }
         return data
     }
 }
