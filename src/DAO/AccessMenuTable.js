@@ -1,8 +1,8 @@
 class AccessMenuTable{
-    showAllMenu(connection){
-        const sql = `SELECT * FROM Menu`
+    static showAllMenu(database){
+        const sql = `SELECT * FROM menu`
 
-        connection.query(sql, (e, result) => {
+        database.query(sql, (e, result) => {
             if(e){
                 return e
             } else {
@@ -10,10 +10,11 @@ class AccessMenuTable{
             }
         })
     }
-    includeMenuItem(connection, values){
+    static includeMenuItem(database, values){
         const sql = `INSERT INTO Menu SET ?`
-        connection.query(sql, values, (e, result) => {
+        database.query(sql, values, (e, result) => {
             if(e){
+                console.log(e)
                 return e
             } else {
                 return result
@@ -21,3 +22,5 @@ class AccessMenuTable{
         })
     }
 }
+
+module.exports = AccessMenuTable;
