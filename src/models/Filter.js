@@ -6,7 +6,6 @@ class Filter {
         const isValid = Validator.queryIsEmpty(query);
         if (isValid) {
             const response = AccessMenuTable.showAllMenu();
-            console.log(response.length)
             return response
         } else {
             const response = await this.filterForIngredients(queryValues)
@@ -15,7 +14,6 @@ class Filter {
     }
     static async filterForIngredients(values) {
         const data = AccessMenuTable.showAllMenu()
-        console.log(data.length)
         let contador = 0
         const selection = []
         selection.splice(0)
