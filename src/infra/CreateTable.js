@@ -1,11 +1,11 @@
 class CreateTable {
-    static init(conexao) {
-        this.conexao = conexao
-        this.CreateTable()
+    static init(connection) {
+        this.connection = connection
+        //this.CreateTable()
     }
     static CreateTable(){
-        const sql
-        this.conexao.query(sql, (e) => {
+        const sql = ``
+        this.connection.query(sql, (e) => {
             if(e){
                 console.log(e)
             } else {
@@ -15,4 +15,4 @@ class CreateTable {
     }
 }
 
-export default CreateTable
+module.exports = CreateTable;
