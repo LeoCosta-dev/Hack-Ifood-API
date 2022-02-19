@@ -4,7 +4,17 @@ class AccessMenuTable{
 
         connection.query(sql, (e, result) => {
             if(e){
-                console.log(e.message)
+                return e
+            } else {
+                return result
+            }
+        })
+    }
+    includeMenuItem(connection, values){
+        const sql = `INSERT INTO Menu SET ?`
+        connection.query(sql, values, (e, result) => {
+            if(e){
+                return e
             } else {
                 return result
             }
