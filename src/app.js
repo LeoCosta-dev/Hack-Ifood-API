@@ -10,13 +10,13 @@ app.listen(port, ()=>{
 
 const translate = new Translate();
 
-async function testeTradutor(){
-    let [traduzir] = await translate.translate("sweet", "pt-br")
-    let tradutor = Array.isArray(traduzir)?traduzir:[traduzir];
-    console.log(tradutor)
-    tradutor.forEach((element, i) => {
-        console.log(`${text[i]} => (${target}) ${element}`);
-    });
-}
+// async function testeTradutor(){
+//     let [traduzir] = await translate.translate("sweet", "pt-br")
+//     let tradutor = Array.isArray(traduzir)?traduzir:[traduzir];
+//     console.log(tradutor)
+//     tradutor.forEach((element, i) => {
+//         console.log(`${text[i]} => (${target}) ${element}`);
+//     });
+// }
 
-testeTradutor()
+// testeTradutor()
