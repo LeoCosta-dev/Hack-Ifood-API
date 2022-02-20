@@ -61,6 +61,7 @@ Utilizar o método HTTP Get no caminho <b>"url da api"/filter</b> ou <b>"url da 
 Para filtrar os pratos por ingredientes não desejados deve ser passado <b>"url da api"/filter?(parametros no formado "nome do parametro"="valor do parametro")</b>, caso passe mais de um parametro os pares de chave e valor dos mesmos devem ser separados pelo caracter <b>"&"</b>.
 <br>
 <br>
-### Filtrar por ingrdientes desejados:
+
+### Filtrar por ingredientes desejados:
 
 Para a busca osposta, o procedimento é o mesmo descrito acima, com a troca da rota por <b>"url da api"/search?(parametros no formado "nome do parametro"="valor do parametro")</b>.
