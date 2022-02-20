@@ -14,7 +14,6 @@ class Filter {
     }
     static async filterForIngredients(values) {
         const data = AccessMenuTable.showAllMenu()
-        let contador = 0
         const selection = []
         selection.splice(0)
         for(let i=0; data.length > i; i++){
@@ -23,6 +22,25 @@ class Filter {
             for(let j = 0; values.length > j; j++){
                 const test = ingredients.includes(values[j])
                 if(test){
+                    testResult.push(true)
+                }
+            }
+            if(testResult.length == 0){
+                selection.push(data[i])
+            }
+        }
+        return selection
+    }
+    static async getForIngredients(values) {
+        const data = AccessMenuTable.showAllMenu()
+        const selection = []
+        selection.splice(0)
+        for(let i=0; data.length > i; i++){
+            let testResult = []
+            let ingredients = data[i].ingredients.join()
+            for(let j = 0; values.length > j; j++){
+                const test = ingredients.includes(values[j])
+                if(!test){
                     testResult.push(true)
                 }
             }
