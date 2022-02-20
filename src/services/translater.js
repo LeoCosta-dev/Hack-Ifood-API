@@ -7,7 +7,7 @@ let apiGoogleTranslate = async (text) => {
 
     let url = `https://translate.google.com.br/?sl=pt&tl=en&text=${encodeURIComponent(text)}&op=translate`;
     await page.goto(url)
-    await page.waitForTimeout(800);
+    await page.waitForTimeout(1500);
 
     const result = await page.evaluate(() => {
         return document.getElementsByClassName('NqnNQd')[0].innerText;
@@ -18,6 +18,3 @@ let apiGoogleTranslate = async (text) => {
 }
 
 module.exports = apiGoogleTranslate
-apiGoogleTranslate('Para montagem da AI, foram utilizados Javascript como línguagem de programação, fazendo uso do runtime NodeJS').then((value) => {
-    console.log(value)
-})

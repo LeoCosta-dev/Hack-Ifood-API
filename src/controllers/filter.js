@@ -1,5 +1,6 @@
 const bd = require("../infra/populateTable")
 const Filter = require('../models/Filter');
+
 module.exports = (app) => {
     app
         .get("/filter", async (req, res) => {
@@ -11,6 +12,11 @@ module.exports = (app) => {
         .get("/search", async (req, res) => {
             const query = req.query;
             const values = Object.values(query);
+            const valuesTranslate = []
+            values.forEach(async element => {
+                let translate = await translater(element)
+                valuesTranslate.push(translate)
+            })
             const result = await Filter.getForIngredients(values)
             res.status(200).json(result)
         })

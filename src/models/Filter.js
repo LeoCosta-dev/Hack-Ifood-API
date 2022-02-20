@@ -1,5 +1,7 @@
 const Validator = require('../services/Validator')
 const AccessMenuTable = require('../DAO/AccessMenuTable')
+const translater = require("../services/translater")
+
 class Filter {
     static async showAllMenu(query) {
         const queryValues = Object.values(query);
@@ -13,14 +15,16 @@ class Filter {
         }
     }
     static async filterForIngredients(values) {
+        let translate = await translater(values.join(" "))
+        let valuesTranslate = translate.split(" ")
         const data = AccessMenuTable.showAllMenu()
         const selection = []
         selection.splice(0)
         for(let i=0; data.length > i; i++){
             let testResult = []
             let ingredients = data[i].ingredients.join()
-            for(let j = 0; values.length > j; j++){
-                const test = ingredients.includes(values[j])
+            for(let j = 0; valuesTranslate.length > j; j++){
+                const test = ingredients.includes(valuesTranslate[j])
                 if(test){
                     testResult.push(true)
                 }
@@ -32,14 +36,16 @@ class Filter {
         return selection
     }
     static async getForIngredients(values) {
+        let translate = await translater(values.join(" "))
+        let valuesTranslate = translate.split(" ")
         const data = AccessMenuTable.showAllMenu()
         const selection = []
         selection.splice(0)
         for(let i=0; data.length > i; i++){
             let testResult = []
             let ingredients = data[i].ingredients.join()
-            for(let j = 0; values.length > j; j++){
-                const test = ingredients.includes(values[j])
+            for(let j = 0; valuesTranslate.length > j; j++){
+                const test = ingredients.includes(valuesTranslate[j])
                 if(!test){
                     testResult.push(true)
                 }
