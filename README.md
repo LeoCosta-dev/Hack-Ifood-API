@@ -65,3 +65,10 @@ Para filtrar os pratos por ingredientes não desejados deve ser passado <b>"url 
 ### Filtrar por ingredientes desejados:
 
 Para a busca osposta, o procedimento é o mesmo descrito acima, com a troca da rota por <b>"url da api"/search?(parametros no formado "nome do parametro"="valor do parametro")</b>.
+<br>
+<br>
+
+### Referências de aplicabilidade:
+Repositório: https://github.com/thaissilvr/iFood-Hack-Project
+Dashboard: https://ifood-hack-project-time15.vercel.app/
+
